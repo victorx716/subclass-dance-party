@@ -1,8 +1,13 @@
 // Creates and returns a new dancer object that can step
-var makeDancer = function (top, left, timeBetweenSteps) {
+var makeDancer = function (top, left, timeBetweenSteps, className) {
   // var dancer = {};
   // use jQuery to create an HTML <span> tag
-  this.$node = $('<span class="dancer"></span>');
+  this.url;
+  if (className === 'resizing') {
+    this.url = 'img/lemonheads.gif';
+  }
+  console.log('<span class="dancer ' + className + '"><img src="' + this.url + '"></img></span>');
+  this.$node = $('<span class="dancer ' + className + '"><img src="' + this.url + '"></img></span>');
   this.step();
 
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote

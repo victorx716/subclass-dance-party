@@ -25,3 +25,14 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
+.resizer{
+  background: url('img/lemonheads.gif');
+  width: 20px;
+  height: 20px;
+  /* z-index: 999999999999999999; */
+  /* display: inline-block; */
+  /* border:10px solid red;
+  border-radius:10px;
+  position:absolute; */
+}
