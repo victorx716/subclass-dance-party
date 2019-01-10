@@ -3,11 +3,12 @@ var makeDancer = function (top, left, timeBetweenSteps, className) {
   // var dancer = {};
   // use jQuery to create an HTML <span> tag
   this.url;
+  this.$node = $('<span class="dancer"></span>')
   if (className === 'resizing') {
-    this.url = 'img/lemonheads.gif';
+    this.$node = $('<span class="' + className + '"><img src="img/lemonheads.gif"></img></span>');
+  } else if (className === 'rotating') {
+    this.$node = $('<span class="' + className + '"><img src="img/squid_dance.gif"></img></span>');
   }
-  console.log('<span class="dancer ' + className + '"><img src="' + this.url + '"></img></span>');
-  this.$node = $('<span class="dancer ' + className + '"><img src="' + this.url + '"></img></span>');
   this.step();
 
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
@@ -30,6 +31,13 @@ makeDancer.prototype.setPosition = function (top, left) {
   var styleSettings = {
     top: top,
     left: left
+  };
+  this.$node.css(styleSettings);
+}
+
+makeDancer.prototype.lineUp = function () {
+  var styleSettings = {
+    left: 0
   };
   this.$node.css(styleSettings);
 }
