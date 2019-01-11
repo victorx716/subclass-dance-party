@@ -26,3 +26,10 @@ makeResizingDancer.prototype.step = function () {
 
   this.grow = !this.grow;
 }
+
+makeResizingDancer.prototype.lineUp = function () {
+  var styleSettings = {
+    top: 0
+  };
+  this.$node.css(styleSettings);
+}

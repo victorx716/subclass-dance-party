@@ -3,8 +3,13 @@ var makeRotatingDancer = function (top, left, timeBetweenSteps) {
   this.top = top;
   this.left = left;
   makeDancer.call(this, top, left, timeBetweenSteps, 'rotating');
+
   this.$node.mouseover(function () {
-    this.setPosition(Math.floor(Math.random() * this.top), Math.floor(Math.random() * this.left));
+    var maxTop = $('body').height() - this.$node.height();
+    var maxLeft = $('body').width() - this.$node.width();
+    var newLeft = Math.floor(Math.random() * maxLeft);
+    var newTop = Math.floor(Math.random() * maxTop);
+    this.setPosition(newTop, newLeft);
   }.bind(this));
 };
 
