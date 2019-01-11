@@ -35,12 +35,14 @@ describe('rotatingDancer', function () {
       expect(rotatingDancer.$node.position().left).to.equal(0);
     });
   });
+
   describe('instanceof', function () {
     it('should be an instance of the makeDancer superclass', function () {
       expect(rotatingDancer).to.be.an.instanceof(makeDancer);
     });
+
     it('should be an instance of the rotatingDancer class', function () {
       expect(rotatingDancer).to.be.an.instanceof(makeRotatingDancer);
     });
-  })
+  });
 });
