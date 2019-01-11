@@ -1,7 +1,6 @@
 var makeRotatingDancer = function (top, left, timeBetweenSteps) {
   this.timeBetweenSteps = timeBetweenSteps;
-  this.top = top;
-  this.left = left;
+  this.rotate = true;
   makeDancer.call(this, top, left, timeBetweenSteps, 'rotating');
 
   this.$node.mouseover(function () {
@@ -18,7 +17,14 @@ makeRotatingDancer.prototype.constructor = makeRotatingDancer;
 
 makeRotatingDancer.prototype.step = function () {
   makeDancer.prototype.step.call(this);
-  this.$node.css(
-    "animation", "rotator " + this.timeBetweenSteps / 1000 + "s infinite"
-  );
+  if (this.rotate) {
+    this.$node.css(
+      "animation", "rotator " + this.timeBetweenSteps / 1000 + "s 1"
+    );
+  } else {
+    this.$node.css(
+      "animation", ""
+    );
+  }
+  this.rotate = !this.rotate;
 }
